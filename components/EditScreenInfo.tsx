@@ -13,7 +13,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
+          - Informações padrões - 
         </Text>
 
         <View
@@ -26,7 +26,8 @@ export default function EditScreenInfo({ path }: { path: string }) {
         <Text
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
+          darkColor="rgba(255,255,255,0.8)"
+        >
           Change any of the text, save the file, and your app will automatically update.
         </Text>
       </View>
