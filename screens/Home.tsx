@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, Image, Pressable } from 'react-native';
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { FAB } from 'react-native-elements';
