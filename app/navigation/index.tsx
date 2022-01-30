@@ -12,8 +12,9 @@ import { ColorSchemeName, Pressable } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import ModalScreen from '../screens/ModalScreen';
+import SchoolGrade from '../screens/SchoolGrade';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import Login from '../screens/Login';
 import Home from '../screens/Home';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
@@ -48,10 +49,15 @@ function RootNavigator() {
 				component={NotFoundScreen} 
 				options={{ title: 'Oops!' }} 
 			/>
+			<Stack.Screen 
+				name="Login" 
+				component={Login} 
+				options={{ title: 'Login' }} 
+			/>
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>
 				<Stack.Screen 
-					name="Modal" 
-					component={ModalScreen}
+					name="SchoolGrade" 
+					component={SchoolGrade}
 					options={{ title: 'Grade escolar' }} 
 				/>
 			</Stack.Group>
@@ -70,27 +76,27 @@ function BottomTabNavigator() {
 
 	return (
 		<BottomTab.Navigator
-			initialRouteName="TabOne"
+			initialRouteName="Home"
 			screenOptions={{
 				tabBarActiveTintColor: Colors[colorScheme].tint,
 			}}>
 			<BottomTab.Screen
-				name="TabOne"
+				name="Home"
 				component={Home}
-				options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
+				options={({ navigation }: RootTabScreenProps<'Home'>) => ({
 					title: 'Início',
 					tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
 					headerRight: () => (
 						<Pressable
-							onPress={() => navigation.navigate('Modal')}
+							onPress={() => navigation.navigate('Login')}
 							style={({ pressed }) => ({
 								opacity: pressed ? 0.5 : 1,
 							})}>
 							<FontAwesome
-								name="info-circle"
+								name="user-circle"
 								size={25}
 								color={Colors[colorScheme].text}
-								style={{ marginRight: 15 }}
+								style={{ marginRight: 25 }}
 							/>
 						</Pressable>
 					),

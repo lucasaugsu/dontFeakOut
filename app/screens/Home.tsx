@@ -4,7 +4,7 @@ import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import { FAB } from 'react-native-elements';
 
-export default function Home({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function Home({ navigation }: RootTabScreenProps<'Home'>) {
 	return (
 		<View>
 			<View style={styles.header}>
@@ -32,7 +32,7 @@ export default function Home({ navigation }: RootTabScreenProps<'TabOne'>) {
 								color="black"
 								style={{padding:22}}
 								icon={{ name: 'add', color: 'white' }}
-								onPress={() => navigation.navigate('Modal')}
+								onPress={() => navigation.navigate('SchoolGrade')}
 							/>
 						</View>
 					</View>

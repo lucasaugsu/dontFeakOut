@@ -5,7 +5,7 @@ import PassContainer from '../components/passcontainer'
 import { Container, Checkbox, ScrollView, Button } from 'native-base';
 
 
-export default function ModalScreen() {
+export default function SchoolGrade() {
 	const [groupValue, setGroupValue] = React.useState(["Lingua Portuguesa", "Espanhol"]);
 
 	const [listOfMaterials, setListOfMaterials] = useState([
