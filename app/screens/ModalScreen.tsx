@@ -1,48 +1,27 @@
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
-import { Text, View } from '../components/Themed';
-import { CheckBox, Icon } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
+import { View, Text } from '../components/Themed';
 import PassContainer from '../components/passcontainer'
+import { Container, Checkbox, ScrollView, Button } from 'native-base';
+
 
 export default function ModalScreen() {
+	const [groupValue, setGroupValue] = React.useState(["Lingua Portuguesa", "Espanhol"]);
+
 	const [listOfMaterials, setListOfMaterials] = useState([
-		{id: 1, title: "Lingua Portuguesa", checked: false},
-		{id: 2, title: "Inglês", checked: false},
-		{id: 3, title: "Espanhol", checked: false},
-		{id: 4, title: "História", checked: false},
-		{id: 5, title: "Geografia", checked: false},
-		/* {id: 6, title: "Filosofia", checked: false},
-		{id: 7, title: "Sociologia", checked: false},
-		{id: 8, title: "Matemática", checked: false},
-		{id: 9, title: "Física", checked: false},
-		{id: 10, title: "Química", checked: false},
-		{id: 11, title: "Biologia", checked: false},
-		{id: 12, title: "Educação física", checked: false} */
+		{id: 1, name: "Lingua Portuguesa"},
+		{id: 2, name: "Inglês"},
+		{id: 3, name: "Espanhol"},
+		{id: 4, name: "História"},
+		{id: 5, name: "Geografia"},
+		{id: 6, name: "Filosofia"},
+		{id: 7, name: "Sociologia"},
+		{id: 8, name: "Matemática"},
+		{id: 9, name: "Física"},
+		{id: 10, name: "Química"},
+		{id: 11, name: "Biologia"},
+		{id: 12, name: "Educação física"}
 	]);
-
-	const [data, setData] = useState([])
-
-
-	const handleToggle = (materia) => {
-		try {
-			let findItem = data.find(item => {return (item == materia)?(item == materia):{} } )
-			if (findItem) {
-				let filtered = data.filter(item => item != materia)
-				setData(filtered)
-				//console.log("entrou no if")
-			}
-			else { 
-				//console.log("entrou no else")
-				let added = data.push(materia)
-				setData(added)
-			}
-			console.log({data})
-		} catch {
-			//data.push(materia)
-			console.log("corno cuscuz")
-		}
-	};
 
 	return (
 		<PassContainer>
@@ -52,27 +31,51 @@ export default function ModalScreen() {
 				<View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 			</View>
 
-			<View>
-				{
-					listOfMaterials &&
-					listOfMaterials.map((materia, index) => {
-						//let findItem = data.find(item => item === materia)
-						return (
-							<CheckBox
-								center
-								key={index}
-								title={materia.title}
-								checked={materia.checked}
-								//checked={findItem?findItem:false}
-								onPress={() => {handleToggle(materia)}}
-							/>
-						)
-					})
-				}
-				<Text style={styles.title}>Grade escolar</Text>
-
-				{/* Use a light status bar on iOS to account for the black space above the modal */}
-				<StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+			<Container style={styles.container}>
+				<ScrollView 
+					h="80"
+					maxW="400" 
+					_contentContainerStyle={{
+						px: "5px",
+						mb: "4",
+						minW: "72"
+					}}
+				>
+					<Checkbox.Group 
+						mt="2" 
+						colorScheme="green" 
+						alignItems="flex-start"
+						defaultValue={groupValue} 
+						accessibilityLabel="choose multiple items" 
+						onChange={values => {setGroupValue(values || []);}} 
+					>
+						{
+							listOfMaterials &&
+							listOfMaterials.map((materia, index) => {
+								return (
+									<Checkbox
+										my="2"
+										size="lg"
+										key={index}
+										value={materia.name}
+									>
+										<Text style={styles.textCheckbox}>
+											{materia.name}
+										</Text>
+									</Checkbox>
+								)
+							})
+						}
+					</Checkbox.Group>
+				</ScrollView>
+      		</Container>
+			<View style={styles.divButton}>
+				<Button
+					variant="solid"
+					style={{width: "100%"}}
+				>
+					Continuar
+				</Button>
 			</View>
 		</PassContainer>
 	);
@@ -82,7 +85,6 @@ const styles = StyleSheet.create({
 	//header
 	header: {
 		marginTop: "7%",
-		marginBottom: "3%",
 		justifyContent:"center",
 		alignItems:"center",
 	},
@@ -101,8 +103,23 @@ const styles = StyleSheet.create({
 		width: '80%',
 	},
 
-	title: {
-		fontSize: 20,
+	//bodyScroll
+	container: {
+		marginLeft:25, 
+		marginRight:20, 
+		justifyContent:"center",
+		alignItems:"center",
+	},
+	textCheckbox: {
+		marginLeft:10,
+		fontSize: 16,
+		color:"white",
 		fontWeight: 'bold',
 	},
+
+	//divButton
+	divButton: {
+		margin:"4%", 
+		marginTop:35,
+	}
 });
