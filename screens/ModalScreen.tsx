@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { CheckBox, Icon } from 'react-native-elements';
+import PassContainer from '../components/passcontainer'
 
 export default function ModalScreen() {
 	const [listOfMaterials, setListOfMaterials] = useState([
@@ -44,7 +45,7 @@ export default function ModalScreen() {
 	};
 
 	return (
-		<View>
+		<PassContainer>
 			<View style={styles.header}>
 				<Text style={styles.titleHeader}>Suas matérias</Text>
 				<Text style={styles.bodyHeader}>Selecione as matérias da sua grade escolar</Text>
@@ -73,7 +74,7 @@ export default function ModalScreen() {
 				{/* Use a light status bar on iOS to account for the black space above the modal */}
 				<StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
 			</View>
-		</View>
+		</PassContainer>
 	);
 }
 
