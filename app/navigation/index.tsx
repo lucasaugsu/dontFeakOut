@@ -52,7 +52,9 @@ function RootNavigator() {
 			<Stack.Screen 
 				name="Login" 
 				component={Login} 
-				options={{ title: 'Login' }} 
+				options={({ navigation }) => ({
+					title: 'Login',
+				})}
 			/>
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>
 				<Stack.Screen 
