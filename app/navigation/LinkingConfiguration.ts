@@ -29,6 +29,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       },
       SchoolGrade: 'modal',
       Login: 'login',
+      SignUp: 'sign',
       NotFound: '*',
     },
   },

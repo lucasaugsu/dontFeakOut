@@ -15,6 +15,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import SchoolGrade from '../screens/SchoolGrade';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import Login from '../screens/Login';
+import SignUp from '../screens/SignUp';
 import Home from '../screens/Home';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
@@ -54,6 +55,13 @@ function RootNavigator() {
 				component={Login} 
 				options={({ navigation }) => ({
 					title: 'Login',
+				})}
+			/>
+			<Stack.Screen 
+				name="SignUp" 
+				component={SignUp} 
+				options={({ navigation }) => ({
+					title: 'Cadastrar',
 				})}
 			/>
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>

@@ -5,51 +5,12 @@ import { FAB } from 'react-native-elements';
 import { RootStackScreenProps } from '../../types';
 import { Container, Checkbox, ScrollView, Button, FormControl, Stack, WarningOutlineIcon, Input } from 'native-base';
 
-export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
+export default function SignUp({ navigation }: RootStackScreenProps<'SignUp'>) {
 	return (
 		<View>
 			<View style={styles.paper}>
 				<View style={styles.header}>
-					<Text style={styles.titleHeader}>Don't Freak Out</Text>
-					<Text style={styles.bodyHeader}>"Um app para organizar seus estudos"</Text>
-				</View>
-
-				<View style={styles.form}>
-					<FormControl isRequired>
-						<Stack mx="4">
-							<Text style={styles.textInput}>Seu email</Text>
-							<Input 
-								type="text" 
-								placeholder="E-mail" 
-							/>
-						</Stack>
-						<Stack mx="4">
-							<Text style={styles.textInput}>Senha</Text>
-							<Input 
-								type="password" 
-								placeholder="Senha" 
-							/>
-						</Stack>
-					</FormControl>
-				</View>
-			
-				<View style={styles.divButtons}>
-					<Button
-						variant="solid"
-						style={styles.button}
-						onPress={() => navigation.navigate('SchoolGrade')}
-					>
-						Entrar
-					</Button>
-					<View style={styles.divBottom}>
-						<Text style={styles.textBottom}>Não possui conta?</Text>
-						<Button
-							variant="link"
-							onPress={() => navigation.navigate('SignUp')}
-						>
-							<Text style={styles.link}>Cadastre-se</Text>
-						</Button>
-					</View>
+					<Text style={styles.titleHeader}>Cadastrar</Text>
 				</View>
 			</View>
 		</View>
