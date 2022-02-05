@@ -6,6 +6,10 @@ import { RootStackScreenProps } from '../../types';
 import { Container, Checkbox, ScrollView, Button, FormControl, Stack, WarningOutlineIcon, Input } from 'native-base';
 
 export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
+
+	const [textEmail, onChangeTextEmail] = React.useState("");
+	const [textPassword, onChangeTextPassword] = React.useState("");
+
 	return (
 		<View>
 			<View style={styles.paper}>
@@ -20,14 +24,18 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 							<Text style={styles.textInput}>Seu email</Text>
 							<Input 
 								type="text" 
+								value={textEmail}
 								placeholder="E-mail" 
+								onChangeText={onChangeTextEmail}
 							/>
 						</Stack>
 						<Stack mx="4">
 							<Text style={styles.textInput}>Senha</Text>
 							<Input 
 								type="password" 
+								value={textPassword}
 								placeholder="Senha" 
+								onChangeText={onChangeTextPassword}
 							/>
 						</Stack>
 					</FormControl>
@@ -61,7 +69,7 @@ const styles = StyleSheet.create({
 		margin:"3%",
 		height:"100%",
 		borderRadius: 10,
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 
 	//header
@@ -70,7 +78,7 @@ const styles = StyleSheet.create({
 		marginBottom: "3%",
 		alignItems:"center",
 		justifyContent:"center",
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 	titleHeader: {
 		fontSize: 26,
@@ -88,7 +96,7 @@ const styles = StyleSheet.create({
 		marginBottom: "3%",
 		alignItems:"center",
 		justifyContent:"center",
-		backgroundColor: "#232323"//"white",
+		backgroundColor: "#696565"//"white",
 	},
 	textInput: {
 		fontSize: 20,
@@ -104,7 +112,7 @@ const styles = StyleSheet.create({
 		marginTop: 15,
 		alignItems:"center",
 		justifyContent:"center",
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 	button: {
 		marginTop: 15,
@@ -117,7 +125,7 @@ const styles = StyleSheet.create({
 		flexDirection:"row",
 		alignItems:"center",
 		justifyContent:"center", 
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 	textBottom: {
 		fontSize:16, 

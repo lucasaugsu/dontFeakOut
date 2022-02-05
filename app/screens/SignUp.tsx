@@ -1,18 +1,73 @@
 import React from "react";
-import { StyleSheet, Image } from 'react-native';
-import { Text, View } from '../components/Themed';
-import { FAB } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
 import { RootStackScreenProps } from '../../types';
-import { Container, Checkbox, ScrollView, Button, FormControl, Stack, WarningOutlineIcon, Input } from 'native-base';
+import { Text, View } from '../components/Themed';
+import { Button, FormControl, Input, Stack } from 'native-base';
 
 export default function SignUp({ navigation }: RootStackScreenProps<'SignUp'>) {
+
+	const [textName, onChangeTextName] = React.useState("");
+	const [textEmail, onChangeTextEmail] = React.useState("");
+	const [textPassword, onChangeTextPassword] = React.useState("");
+	const [textConfirmPassword, onChangeTextConfirmPassword] = React.useState("");
+
 	return (
 		<View>
 			<View style={styles.paper}>
 				<View style={styles.header}>
-					<Text style={styles.titleHeader}>Cadastrar</Text>
+					<Text style={styles.titleHeader}>Crie sua conta</Text>
+				</View>
+				<View style={styles.form}>
+					<FormControl isRequired>
+						<Stack mx="4">
+							<Text style={styles.textInput}>Nome</Text>
+							<Input 
+								type="text" 
+								value={textName}
+								placeholder="Nome" 
+								onChangeText={onChangeTextName}
+							/>
+						</Stack>
+						<Stack mx="4">
+							<Text style={styles.textInput}>Email</Text>
+							<Input 
+								type="text" 
+								value={textEmail}
+								placeholder="E-mail" 
+								onChangeText={onChangeTextEmail}
+							/>
+						</Stack>
+						<Stack mx="4">
+							<Text style={styles.textInput}>Senha</Text>
+							<Input 
+								type="password" 
+								value={textPassword}
+								placeholder="Senha" 
+								onChangeText={onChangeTextPassword}
+							/>
+						</Stack>
+						<Stack mx="4">
+							<Text style={styles.textInput}>Confirmar senha</Text>
+							<Input 
+								type="password" 
+								value={textConfirmPassword}
+								placeholder="Confirmar senha"
+								onChangeText={onChangeTextConfirmPassword}
+							/>
+						</Stack>
+					</FormControl>
+				</View>
+				<View style={styles.divButtons}>
+					<Button
+						variant="solid"
+						style={styles.button}
+						onPress={() => navigation.navigate('Home')}
+					>
+						Cadastrar
+					</Button>
 				</View>
 			</View>
+			
 		</View>
 	);
 }
@@ -22,7 +77,7 @@ const styles = StyleSheet.create({
 		margin:"3%",
 		height:"100%",
 		borderRadius: 10,
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 
 	//header
@@ -31,11 +86,11 @@ const styles = StyleSheet.create({
 		marginBottom: "3%",
 		alignItems:"center",
 		justifyContent:"center",
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 	titleHeader: {
 		fontSize: 26,
-		marginBottom:"2.5%",
+		color: "white",//"#24afc1",
 		fontWeight: 'bold',
 	},
 	bodyHeader: {
@@ -49,13 +104,14 @@ const styles = StyleSheet.create({
 		marginBottom: "3%",
 		alignItems:"center",
 		justifyContent:"center",
-		backgroundColor: "#232323"//"white",
+		backgroundColor: "#696565"//"white",
 	},
 	textInput: {
 		fontSize: 20,
 		marginLeft: 5,
 		marginTop: 10,
 		marginBottom:2,
+		//color: "#24afc1",
 		fontWeight: 'bold',
 	},
 
@@ -65,7 +121,7 @@ const styles = StyleSheet.create({
 		marginTop: 15,
 		alignItems:"center",
 		justifyContent:"center",
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 	button: {
 		marginTop: 15,
@@ -78,7 +134,7 @@ const styles = StyleSheet.create({
 		flexDirection:"row",
 		alignItems:"center",
 		justifyContent:"center", 
-		backgroundColor: "#232323",
+		backgroundColor: "#696565",
 	},
 	textBottom: {
 		fontSize:16, 
